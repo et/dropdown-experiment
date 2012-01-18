@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Maximum dropdown test</title>
+    <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
+  </head>
+  <body>
+
+    <ul class="tabs">
+      <li class="dropdown" data-dropdown="dropdown">
+
+        <a href="#" class="dropdown-toggle">Search</a>
+
+        <ul class="dropdown-menu">
+          <li>
+
+            <form action class="form-stacked">
+              <div class="clearfix">
+                <label for="search">Name</label>
+                <div class="input">
+                  <input class="xlarge" id="search" name="search" size="30" type="text">
+                </div>
+              </div>
+              <div class="clearfix">
+                <label for="size">Size</label>
+                <div class="input">
+                  <input class="xlarge" id="size" name="size" size="30" type="text">
+                </div>
+              </div>
+
+              <div class="actions">
+                <button type="submit" class="btn primary">Search</button>
+              </div>
+            </form>
+          </li>
+        </ul>
+
+      </li>
+
+      <li class="dropdown pull-right" data-dropdown="dropdown">
+        <a href="#" class="dropdown-toggle">Sort</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Name</a></li>
+          <li class="selected"><a href="#">Size</a></li>
+          <li><a href="#">Time</a></li>
+        </ul>
+      </li>
+    </ul>
+
+    <script src="http://code.jquery.com/jquery-1.5.2.min.js"></script>
+    <script src="./javascripts/bootstrap-dropdown.js"></script>
+
+    <script type="text/javascript">
+      $('.dropdown-menu').find('form').click(function (e) {
+        e.stopPropagation();
+      });
+    </script>
+
+    <style media="screen" type="text/css">
+      .dropdown-menu {
+        max-width: none;
+      }
+
+      .selected {
+        background-image: url('images/checkmark.png');
+        background-position: left center;
+        background-repeat: no-repeat;
+      }
+    </style>
+  </body>
+</html>
