@@ -9,6 +9,7 @@
   <body>
 
     <div id="directory-dialog" title="Choose files to upload" style="display:none">
+      <input class="xlarge" id="search" name="search" size="30" type="text">
 
       <ul class="tabs">
         <li class="dropdown" data-dropdown="dropdown">
@@ -39,15 +40,6 @@
             </li>
           </ul>
 
-        </li>
-
-        <li class="dropdown pull-right" data-dropdown="dropdown">
-          <a href="#" class="dropdown-toggle">Sort</a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Name</a></li>
-            <li class="selected"><a href="#">Size</a></li>
-            <li><a href="#">Time</a></li>
-          </ul>
         </li>
       </ul>
     </div>
@@ -86,12 +78,6 @@
     <style media="screen" type="text/css">
       .dropdown-menu {
         max-width: none;
-      }
-
-      .selected {
-        background-image: url('images/checkmark.png');
-        background-position: left center;
-        background-repeat: no-repeat;
       }
     </style>
   </body>
