@@ -2,59 +2,86 @@
 <html>
   <head>
     <title>Maximum dropdown test</title>
-    <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./css/jquery-ui-1.8.16.custom.css">
+    <link rel="stylesheet" href="./css/jquery.ui.1.8.16.ie.css">
   </head>
   <body>
 
-    <ul class="tabs">
-      <li class="dropdown" data-dropdown="dropdown">
+    <div id="directory-dialog" title="Choose files to upload" style="display:none">
 
-        <a href="#" class="dropdown-toggle">Search</a>
+      <ul class="tabs">
+        <li class="dropdown" data-dropdown="dropdown">
 
-        <ul class="dropdown-menu">
-          <li>
+          <a href="#" class="dropdown-toggle">Search</a>
 
-            <form action class="form-stacked">
-              <div class="clearfix">
-                <label for="search">Name</label>
-                <div class="input">
-                  <input class="xlarge" id="search" name="search" size="30" type="text">
+          <ul class="dropdown-menu">
+            <li>
+
+              <form action class="form-stacked">
+                <div class="clearfix">
+                  <label for="search">Name</label>
+                  <div class="input">
+                    <input class="xlarge" id="search" name="search" size="30" type="text">
+                  </div>
                 </div>
-              </div>
-              <div class="clearfix">
-                <label for="size">Size</label>
-                <div class="input">
-                  <input class="xlarge" id="size" name="size" size="30" type="text">
+                <div class="clearfix">
+                  <label for="size">Size</label>
+                  <div class="input">
+                    <input class="xlarge" id="size" name="size" size="30" type="text">
+                  </div>
                 </div>
-              </div>
 
-              <div class="actions">
-                <button type="submit" class="btn primary">Search</button>
-              </div>
-            </form>
-          </li>
-        </ul>
+                <div class="actions">
+                  <button type="submit" class="btn primary">Search</button>
+                </div>
+              </form>
+            </li>
+          </ul>
 
-      </li>
+        </li>
 
-      <li class="dropdown pull-right" data-dropdown="dropdown">
-        <a href="#" class="dropdown-toggle">Sort</a>
-        <ul class="dropdown-menu">
-          <li><a href="#">Name</a></li>
-          <li class="selected"><a href="#">Size</a></li>
-          <li><a href="#">Time</a></li>
-        </ul>
-      </li>
-    </ul>
+        <li class="dropdown pull-right" data-dropdown="dropdown">
+          <a href="#" class="dropdown-toggle">Sort</a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Name</a></li>
+            <li class="selected"><a href="#">Size</a></li>
+            <li><a href="#">Time</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
 
-    <script src="http://code.jquery.com/jquery-1.5.2.min.js"></script>
-    <script src="./javascripts/bootstrap-dropdown.js"></script>
+    <a class="btn small" id="modal-link" href="#">Browse...</a>
+
+    <script src="./js/jquery-1.6.2.min.js" type="text/javascript"></script>
+    <script src="./js/bootstrap-dropdown.js" type="text/javascript"></script>
+    <script src="./js/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
 
     <script type="text/javascript">
-      $('.dropdown-menu').find('form').click(function (e) {
-        e.stopPropagation();
+      $(document).ready (function () {
+        $('.dropdown-menu').find('form').click(function (e) {
+          e.stopPropagation();
+        });
+
+        $('#directory-dialog').dialog({
+          autoOpen: false,
+          modal: true,
+          height: 530,
+          width: 750,
+          buttons: {
+            Select: function () {
+              $(this).dialog('close');
+            }
+          }
+        });
+
+        $('#modal-link').click(function() {
+          $('#directory-dialog').dialog('open');
+        });
       });
     </script>
+
 
     <style media="screen" type="text/css">
       .dropdown-menu {
